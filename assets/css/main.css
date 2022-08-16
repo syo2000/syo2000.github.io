@@ -11,7 +11,7 @@ Theme Name: Jason Stroff
 
 */
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
+>>> TABLE OF CONTENTS: 
 ----------------------------------------------------------------*/
 html {font-family: 'Inter', sans-serif;background-color:#FFF}
 body {font-family: 'Inter', sans-serif;overflow-x: hidden; background-color:#FFF; font-weight:400;font-style: normal; color:#373737; font-size:14px}
@@ -169,3 +169,116 @@ span.ds-department{ color: #373737; font-weight: 500; font-size: 18px; padding-b
 
 
 }
+
+
+
+
+
+
+
+
+
+.article {
+	display: block;
+	margin-bottom: 6em; }
+	.article .blog-img {
+	  margin-bottom: 50px;
+	  display: block;
+	  position: relative;
+	  overflow: hidden;
+	  width: 100%; }
+	  .article .blog-img img {
+		position: relative;
+		max-width: 100%;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
+		-webkit-transition: 0.7s;
+		-o-transition: 0.7s;
+		transition: 0.7s; }
+	  .article .blog-img .overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.6);
+		opacity: 0;
+		-webkit-transition: 0.3s;
+		-o-transition: 0.3s;
+		transition: 0.3s; }
+	  .article .blog-img .link {
+		position: absolute;
+		bottom: 0;
+		left: 90%;
+		display: table;
+		width: 100%;
+		opacity: 0;
+		-webkit-transition: 0.7s;
+		-o-transition: 0.7s;
+		transition: 0.7s; }
+		.article .blog-img .link .read {
+		  display: table-cell;
+		  vertical-align: middle;
+		  font-family: "Karla", Arial, sans-serif;
+		  color: #fff;
+		  font-size: 12px;
+		  text-transform: uppercase;
+		  letter-spacing: 5px;
+		  -webkit-transform: rotate(-90deg);
+		  -moz-transform: rotate(-90deg);
+		  -ms-transform: rotate(-90deg);
+		  -o-transform: rotate(-90deg);
+		  transform: rotate(-90deg);
+		  -webkit-transform-origin: 0;
+		  -ms-transform-origin: 0;
+		  transform-origin: 0;
+		  position: relative; }
+		  .article .blog-img .link .read:after {
+			position: absolute;
+			top: 10px;
+			left: -50px;
+			content: '';
+			background: #fff;
+			width: 40px;
+			height: 1px; }
+	  .article .blog-img:hover .overlay {
+		opacity: 1; }
+	  .article .blog-img:hover .link {
+		opacity: 1;
+		bottom: 50px; }
+	  .article .blog-img:hover img {
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: scale(1.1); }
+	.article .desc {
+	  position: relative; }
+	  .article .desc .meta {
+		position: absolute;
+		top: -80px;
+		left: 20px;
+		background: #FFE9E3;
+		color: #000;
+		padding: 20px 10px;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 4px;
+		-webkit-transition: 1s;
+		-o-transition: 1s;
+		transition: 1s;
+		-webkit-box-shadow: 0px 2px 49px -4px rgba(0, 0, 0, 0.21);
+		-moz-box-shadow: 0px 2px 49px -4px rgba(0, 0, 0, 0.21);
+		-ms-box-shadow: 0px 2px 49px -4px rgba(0, 0, 0, 0.21);
+		-o-box-shadow: 0px 2px 49px -4px rgba(0, 0, 0, 0.21);
+		box-shadow: 0px 2px 49px -4px rgba(0, 0, 0, 0.21); }
+	  .article .desc h2 {
+		font-size: 24px; }
+		.article .desc h2 a {
+		  text-decoration: none;
+		  color: #000; }
+	.article:hover .meta {
+	  background: #fff; }
