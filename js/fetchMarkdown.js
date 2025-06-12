@@ -6,14 +6,15 @@ marked.setOptions({
 
 // Map HTML file → link Markdown trên GitHub
 const pageToMarkdownMap = {
-    "sql-basic.html": "https://raw.githubusercontent.com/syo2000/HackerRank/main/SQL/Basic%20Select.md",
+    "sql-basic-select.html": "https://raw.githubusercontent.com/syo2000/HackerRank/main/SQL/Basic%20Select.md",
     "sql-aggregation.html": "https://raw.githubusercontent.com/syo2000/HackerRank/main/SQL/Aggregation.md",
-    "sql-advanced.html": "https://raw.githubusercontent.com/syo2000/HackerRank/main/SQL/Advanced%20Select.md"
+    "sql-advanced-select.html": "https://raw.githubusercontent.com/syo2000/HackerRank/main/SQL/Advanced%20Select.md",
+    "sql-basic-join.html": "https://raw.githubusercontent.com/syo2000/HackerRank/main/SQL/Basic%20Join.md"
 };
 
 // Map HTML file → thông tin tiêu đề slider
 const pageToMetadataMap = { 
-    "sql-basic.html": {
+    "sql-basic-select.html": {
         tag: "SQL",
         title: "HackerRank SQL Basic Select",
         date: "May 29, 2021",
@@ -27,12 +28,19 @@ const pageToMetadataMap = {
         image: "../../../images/blog/sql-hackerrank-single.png",
         link: "https://github.com/syo2000/HackerRank/blob/main/SQL/Aggregation.md"
     },
-    "sql-advanced.html": {
+    "sql-advanced-select.html": {
         tag: "SQL",
         title: "HackerRank SQL Advanced",
         date: "May 29, 2021",
         image: "../../../images/blog/sql-hackerrank-single.png",
         link: "https://github.com/syo2000/HackerRank/blob/main/SQL/Advanced%20Select.md"
+    },
+    "sql-basic-join.html": {
+        tag: "SQL",
+        title: "HackerRank SQL Basic Join",
+        date: "June 12, 2025",
+        image: "../../../images/blog/sql-hackerrank-single.png",
+        link: "https://github.com/syo2000/HackerRank/blob/main/SQL/Basic%20Join.md"
     }
 };
 
@@ -49,6 +57,7 @@ async function fetchGitHubContent(markdownUrl) {
         const markdown = await response.text();
         const html = marked.parse(markdown);
         document.getElementById('content').innerHTML = html;
+        Prism.highlightAll();
 
     } catch (error) {
         document.getElementById('content').innerHTML = `<p style="color: red;">❌ Error: ${error.message}</p>`;
