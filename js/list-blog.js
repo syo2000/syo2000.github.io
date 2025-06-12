@@ -6,7 +6,7 @@ const newBlogs = [
     tag: "SQL",
     date: "May 29, 2021",
     title: "HackerRank SQL Basic Select",
-    link: "blog/hackerrank/sql/sql-basic.html",
+    link: "blog/hackerrank/sql/sql-basic-select.html",
     content: "",
     image: "images/blog/sql-hackerrank.png",
     image_slider: "images/blog/sql-hackerrank.png"
@@ -24,7 +24,7 @@ const newBlogs = [
     tag: "SQL",
     date: "May 29, 2021",
     title: "HackerRank SQL Advanced",
-    link: "blog/hackerrank/sql/sql-advanced.html",
+    link: "blog/hackerrank/sql/sql-advanced-select.html",
     content: "",
     image: "images/blog/sql-hackerrank.png",
     image_slider: "images/blog/sql-hackerrank.png"
@@ -37,6 +37,15 @@ const newBlogs = [
     content: "",
     image: "images/blog/python-hackerrank.png",
     image_slider: "images/blog/python-hackerrank.png"
+  },
+  {
+    tag: "SQL",
+    date: "June 12, 2025",
+    title: "HackerRank SQL Basic Join",
+    link: "blog/hackerrank/sql/sql-basic-join.html",
+    content: "",
+    image: "images/blog/sql-hackerrank.png",
+    image_slider: "images/blog/sql-hackerrank.png"
   }
 ];
 
