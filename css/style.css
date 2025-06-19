@@ -13033,13 +13033,13 @@ h3{
     }
 }
 .blog-post-tag a{
-    background-color:#000;
+    background-color:#d1fae5;
     padding:4px 20px;
     display:inline-block;
     border-radius:50px;
     text-decoration:none;
     font-size:12px;
-    color:#fff;
+    color:#2ecc71;
     font-weight:600;
     margin-bottom:20px
 }
@@ -13847,4 +13847,552 @@ pre {
     color: #e1e8f2; /* hoặc màu bạn muốn */
 }
 
+
+.process-header {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.process-header h1 {
+    font-size: 3em; /* Kích thước font lớn hơn */
+    font-weight: 700; /* Đậm hơn */
+    color: linear-gradient(to right, #333333, #2ecc71);
+    margin: 0;
+    letter-spacing: -1px;
+    
+}
+.process-header h1 .gradient-text { /* Áp dụng cho "king" */
+    color: #2ecc71; /* Màu xanh lá cây cho "king" */
+   
+}
+
+.process-header h1 span {
+    color: #2ecc71;
+    font-weight: 500; /* Nhẹ hơn một chút */
+}
+
+/* Cards container */
+.process-cards {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các thẻ xuống dòng trên màn hình nhỏ */
+    gap: 25px; /* Khoảng cách giữa các thẻ */
+    justify-content: center; /* Căn giữa các thẻ */
+}
+
+/* Individual card styling */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: calc(33% - 20px); /* 4 thẻ trên một hàng, trừ đi khoảng cách */
+    min-width: 250px; /* Chiều rộng tối thiểu cho thẻ */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Nhấc thẻ lên một chút khi hover */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card .number {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e0e0e0; /* Màu xám nhạt cho số */
+    z-index: 2; /* Đảm bảo số nằm trên hình ảnh */
+}
+
+.card .icon {
+    width: 100px; /* Kích thước hình ảnh */
+    height: 100px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Placeholder for image - you'd replace with actual SVG/PNG */
+    background-color: transparent; /* Nền trong suốt */
+    border-radius: 50%; /* Nếu muốn hình tròn */
+    position: relative;
+    z-index: 3; /* Đảm bảo hình ảnh nằm trên số */
+}
+
+.card .icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
+}
+
+.card .subtitle {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.card .title {
+    font-size: 1.4em; /* Kích thước tiêu đề */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px); /* 2 thẻ trên một hàng */
+    }
+}
+
+@media (max-width: 768px) {
+    .process-container {
+        padding: 30px 15px;
+    }
+    .process-header h1 {
+        font-size: 2.5em;
+    }
+    .card {
+        width: calc(100% - 20px); /* 1 thẻ trên một hàng */
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-header h1 {
+        font-size: 2em;
+    }
+}
+
+/* Phần kinh nghiệm làm việc */
+.experience {
+    display: flex;
+    flex-direction: column; /* Sắp xếp các mục theo chiều dọc */
+}
+
+.job-item {
+    display: flex;
+    padding: 20px 0; /* Khoảng cách trên dưới cho mỗi mục */
+    border-bottom: 1px solid #ddd; /* Đường kẻ phân cách */
+    align-items: center; /* THAY ĐỔI TẠI ĐÂY: Căn giữa theo chiều dọc */
+}
+
+.job-item:last-child {
+    border-bottom: none; /* Không có đường kẻ ở mục cuối cùng */
+}
+
+/* Phần năm kinh nghiệm */
+.job-year {
+    width: 120px; /* Chiều rộng cố định cho cột năm */
+    font-weight: bold;
+    color: #2ecc71; /* Màu xanh lá cây đậm */
+    text-align: right; /* Căn phải */
+    margin-right: 25px; /* Khoảng cách với phần chi tiết */
+    flex-shrink: 0; /* Không cho phép co lại */
+    font-size: 1.1em; /* Kích thước chữ cho năm */
+}
+
+.job-year.now {
+    /* If 'NOW' needs any specific styling different from other years */
+    /* color: #2ecc71; is already applied, so no specific override needed unless different */
+}
+
+/* Phần chi tiết công việc */
+.job-details {
+    flex-grow: 1; /* Cho phép chiếm hết không gian còn lại */
+}
+
+.job-details h2 {
+    font-size: 1.5em; /* Kích thước tiêu đề công việc */
+    margin-top: 0;
+    margin-bottom: 5px; /* Khoảng cách dưới tiêu đề */
+    color: #333; /* Màu chữ cho tiêu đề */
+    font-weight: 500; /* Độ đậm vừa phải */
+    letter-spacing: -0.3px;
+}
+
+.job-details p {
+    margin: 0;
+    color: #777; /* Màu chữ cho tên công ty */
+    font-size: 1.0em; /* Kích thước chữ cho tên công ty */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 15px;
+        width: 95%;
+    }
+    .header h1 {
+        font-size: 2.2em;
+    }
+    .job-item {
+        flex-direction: column; /* Chuyển sang xếp chồng trên màn hình nhỏ */
+        align-items: flex-start;
+    }
+    .job-year {
+        width: auto;
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 5px; /* Khoảng cách dưới năm khi xếp chồng */
+    }
+}
+
+/* Testimonial Section Container */
+.testimonial-section {
+    width: 100%;
+    max-width: 100%; /* Tăng max-width để phù hợp với bố cục */
+    padding: 50px 30px;
+    box-sizing: border-box;
+    background-color: #fff; /* Nền trắng */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex; /* Dùng flexbox để chia 2 cột */
+    align-items: flex-start; /* Căn trên cùng */
+    gap: 40px; /* Khoảng cách giữa các cột */
+}
+
+/* Left side: Quote content */
+.quote-content {
+    flex: 2; /* Chiếm 2 phần không gian */
+    text-align: left;
+    position: relative;
+}
+
+.quote-icon {
+    color: #2ecc71; /* Màu xanh lá cây của icon */
+    font-size: 3em; /* Kích thước icon lớn */
+    line-height: 0.5; /* Điều chỉnh vị trí icon */
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: block;
+    width: fit-content; /* Để background màu cho icon không bị tràn */
+    background-color: #d1fae5; /* Màu nền cho icon */
+    padding: 5px 10px; /* Padding cho icon */
+    border-radius: 5px; /* Bo góc icon */
+    transform: rotateY(180deg); /* Lật icon dấu ngoặc kép */
+}
+
+/* Using pseudo-elements for more control over quote icon */
+.quote-icon::before {
+    content: '”'; /* Dấu ngoặc kép đóng */
+    display: inline-block;
+    transform: rotateY(180deg); /* Xoay lại để trông như dấu mở */
+}
+
+
+.quote-text {
+    font-size: 1.8em; /* Font chữ lớn hơn cho lời chứng thực */
+    font-weight: 500; /* Độ đậm vừa phải */
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.author-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.author-title {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Right side: Avatars */
+.avatar-group {
+    flex: 1; /* Chiếm 1 phần không gian */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các avatar */
+    padding-top: 50px; /* Đẩy các avatar xuống dưới một chút để khớp với quote */
+}
+
+.avatar-item {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-item img {
+    width: 70px; /* Kích thước avatar */
+    height: 70px;
+    border-radius: 50%; /* Hình tròn */
+    object-fit: cover;
+    border: 3px solid #fff; /* Viền trắng */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-item.active img {
+    border-color: #2ecc71; /* Viền xanh cho avatar đang hoạt động */
+}
+
+/* "Free" badge for the active avatar */
+.avatar-item .badge {
+    position: absolute;
+    top: 0px; /* Điều chỉnh vị trí badge */
+    right: -5px; /* Điều chỉnh vị trí badge */
+    background-color: #ffeb3b; /* Màu vàng */
+    color: #333;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-section {
+        flex-direction: column; /* Xếp chồng các phần trên màn hình nhỏ */
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .quote-content {
+        text-align: center; /* Căn giữa nội dung quote */
+        order: 2; /* Đẩy nội dung quote xuống dưới */
+    }
+
+    .quote-icon {
+        margin: 0 auto 20px auto; /* Căn giữa icon */
+    }
+
+    .quote-text {
+        font-size: 1.5em;
+    }
+
+    .author-name, .author-title {
+        text-align: center;
+    }
+
+    .avatar-group {
+        flex-direction: row; /* Xếp các avatar theo hàng ngang */
+        justify-content: center; /* Căn giữa các avatar */
+        padding-top: 0; /* Bỏ padding-top */
+        order: 1; /* Đẩy avatar lên trên */
+    }
+
+    .avatar-item {
+        margin: 0 10px 0 0; /* Khoảng cách ngang giữa các avatar */
+    }
+
+    .avatar-item:last-child {
+        margin-right: 0;
+    }
+
+    .avatar-item img {
+        width: 60px; /* Kích thước nhỏ hơn trên mobile */
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-text {
+        font-size: 1.2em;
+    }
+    .avatar-item img {
+        width: 50px;
+        height: 50px;
+    }
+    .avatar-item .badge {
+        font-size: 0.6em;
+        padding: 2px 6px;
+    }
+}
+
+/* Main Container for Education and Experience section */
+.edu-exp-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #ffffff; /* Nền trắng sáng */
+    border-radius: 12px; /* Bo góc mềm mại */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Đổ bóng sâu và mềm hơn */
+    display: flex; /* Dùng flexbox để tạo bố cục 2 cột */
+    gap: 40px; /* Khoảng cách giữa 2 cột */
+    align-items: flex-start; /* Căn chỉnh các mục từ trên xuống */
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+/* Column Styling */
+.edu-exp-column {
+    flex: 1; /* Mỗi cột chiếm 1 phần không gian */
+    min-width: 300px; /* Chiều rộng tối thiểu cho cột */
+    box-sizing: border-box;
+    padding: 20px; /* Padding bên trong mỗi cột */
+    position: relative; /* Cho đường gạch dọc */
+}
+
+/* Vertical Divider Line */
+.edu-exp-column:first-child::after {
+    content: '';
+    position: absolute;
+    top: 20px; /* Bắt đầu từ đỉnh của padding */
+    bottom: 20px; /* Kết thúc ở đáy của padding */
+    right: -20px; /* Nằm chính giữa khoảng cách (gap) 40px */
+    width: 1px; /* Độ dày của đường gạch */
+    background-color: #e0e0e0; /* Màu xám nhạt cho đường gạch */
+    /* Ẩn đường gạch nếu cột chỉ có một mình (trên mobile) */
+    display: none;
+}
+
+/* Hiển thị đường gạch khi có đủ không gian cho 2 cột */
+@media (min-width: 769px) {
+    .edu-exp-column:first-child::after {
+        display: block; /* Hiện đường gạch trên màn hình lớn */
+    }
+}
+
+
+/* Section Header Styling (for Education and Experience titles) */
+.section-title-wrapper {
+    margin-bottom: 30px;
+    text-align: left; /* Căn trái cho tiêu đề */
+}
+
+.section-title-wrapper h1 {
+    font-size: 2.5em; /* Kích thước tiêu đề lớn */
+    font-weight: 700;
+    color: #2c3e50; /* Màu chữ đen đậm */
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.section-title-wrapper h1 .highlight-green {
+    color: #2ecc71; /* Màu xanh lá cây cho tiêu đề */
+}
+
+/* Education Details Styling */
+.education-item {
+    margin-bottom: 25px; /* Khoảng cách dưới mỗi mục giáo dục */
+}
+
+.education-item h3 {
+    font-size: 1.25em; /* Kích thước tên trường/chuyên ngành */
+    font-weight: 600;
+    color: #34495e; /* Màu chữ đậm hơn */
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.education-item p {
+    font-size: 0.95em;
+    color: #7f8c8d; /* Màu xám mềm mại */
+    margin: 0;
+}
+
+.education-item .degree-info {
+    font-size: 1.05em;
+    font-weight: 500;
+    color: #5d6d7e; /* Màu xám đậm */
+    margin-bottom: 5px;
+}
+
+/* Experience Details Styling (adapted from previous code) */
+.experience-list {
+    /* Container cho danh sách kinh nghiệm nếu có nhiều mục */
+}
+
+.experience-item {
+    display: flex; /* Flexbox cho năm và chi tiết */
+    padding: 20px 0;
+    border-bottom: 1px solid #e9ecef; /* Đường kẻ phân cách nhạt hơn */
+    align-items: flex-start; /* Căn trên cùng */
+    gap: 15px; /* Khoảng cách giữa năm và chi tiết */
+}
+
+.experience-item:last-child {
+    border-bottom: none; /* Không có đường kẻ ở mục cuối */
+}
+
+.exp-year {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #2ecc71; /* Màu xanh lá cây cho năm */
+    flex-shrink: 0; /* Không co lại */
+    width: 110px; /* Chiều rộng cố định cho năm */
+    text-align: right; /* Căn phải */
+}
+
+.exp-details {
+    flex-grow: 1; /* Chiếm hết không gian còn lại */
+}
+
+.exp-details h3 {
+    font-size: 1.3em; /* Tiêu đề vị trí */
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.exp-details p {
+    font-size: 0.95em;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .edu-exp-section {
+        flex-direction: column; /* Xếp chồng các cột */
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .edu-exp-column {
+        min-width: unset; /* Bỏ min-width trên mobile */
+        width: 100%; /* Đảm bảo chiếm 100% */
+        padding: 0; /* Bỏ padding cột để nội dung sát hơn */
+    }
+
+    .edu-exp-column:first-child::after {
+        display: none; /* Ẩn đường gạch dọc */
+    }
+
+    /* Thêm đường gạch ngang giả nếu cần (dưới phần Education) */
+    .edu-exp-column:first-child {
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .section-title-wrapper {
+        text-align: left; /* Tiêu đề vẫn căn trái */
+        margin-bottom: 25px;
+    }
+
+    .section-title-wrapper h1 {
+        font-size: 2em;
+    }
+
+    .experience-item {
+        flex-direction: column; /* Xếp chồng năm và chi tiết trong kinh nghiệm */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .exp-year {
+        width: auto; /* Bỏ chiều rộng cố định */
+        text-align: left; /* Căn trái năm */
+        margin-bottom: 5px;
+    }
+}
 
