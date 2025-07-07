@@ -18,6 +18,11 @@
   <!--Favicon-->
   <link rel="shortcut icon"  class="favicon" href="" type="image/x-icon" />
   <link rel="icon" class="favicon"  href="" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -71,33 +76,48 @@
 <section class="blog">
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 mx-auto">
+      <div class="col-lg-9 mx-auto">
+   
         <div class="blog-section-title">
           <h2>Portfolio </h2>
           <p>View the latest news on Portfolio </p>
-        </div> 
+        </div>  
         <!-- List Portfolio-->
-        <div id = "por-container"></div>
+        <div id = "por-container"></div> 
 
 
         <div class="blog-post-pagination">
           <nav aria-label="Page navigation example" class="nav-bg">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link active" href="#">1</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </li>
-            </ul>
+            <ul class="pagination"></ul>
           </nav>
-        </div>
+        </div>     
       </div>
+
+      <div class="col-lg-3">
+        
+          <div class="widget">
+            <div class="widget-title">
+              <h3>Portfolio Categories</h3>
+            </div>
+            <div >
+              <ul class="categories-list" id="por-tag-filter-buttons">
+                <li class="category-item">
+                    <a href="#" data-tag="" class="category-link">
+                        <span class="category-name"></span>
+                        <span class="category-count"></span>
+                    </a>
+                </li>
+              
+              </ul>
+            </div>
+          </div>
+
+          
+        
+      </div>
+
+
+
     </div>
   </div>
 </section>
