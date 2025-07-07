@@ -1,10 +1,10 @@
-const POSTS_PER_PAGE_BLOG = 5; // Số bài viết mỗi trang
+const POSTS_PER_PAGE_BLOG = 5;
 let currentPageBlog = 1;
-let currentFilterTag = null; // New variable to store the currently active filter tag
+let currentFilterTag = null;
 
 const newBlogs = [
     {
-        tag: "SQL",
+        tags: ["SQL"],
         date: "May 29, 2021",
         title: "HackerRank SQL Basic Select",
         link: "blog/hackerrank/sql/sql-basic-select.html",
@@ -13,7 +13,7 @@ const newBlogs = [
         image_slider: "images/blog/sql-hackerrank.png"
     },
     {
-        tag: "SQL",
+        tags: ["SQL"],
         date: "May 29, 2021",
         title: "HackerRank SQL Aggregation",
         link: "blog/hackerrank/sql/sql-aggregation.html",
@@ -22,7 +22,7 @@ const newBlogs = [
         image_slider: "images/blog/sql-hackerrank.png"
     },
     {
-        tag: "SQL",
+        tags: ["SQL"],
         date: "May 29, 2021",
         title: "HackerRank SQL Advanced",
         link: "blog/hackerrank/sql/sql-advanced-select.html",
@@ -31,7 +31,7 @@ const newBlogs = [
         image_slider: "images/blog/sql-hackerrank.png"
     },
     {
-        tag: "Python",
+        tags: ["Python"],
         date: "Jan 11, 2025",
         title: "HackerRank Python Introduction",
         link: "blog/hackerrank/python/python-introduction.html",
@@ -40,7 +40,7 @@ const newBlogs = [
         image_slider: "images/blog/python-hackerrank.png"
     },
     {
-        tag: "SQL",
+        tags: ["SQL"],
         date: "June 12, 2025",
         title: "HackerRank SQL Basic Join",
         link: "blog/hackerrank/sql/sql-basic-join.html",
@@ -48,43 +48,45 @@ const newBlogs = [
         image: "images/blog/sql-hackerrank.png",
         image_slider: "images/blog/sql-hackerrank.png"
     }
-   
- 
 ];
 
-// Hàm thêm Top 5 bài viết
+// Render Top 5 blogs
 function renderTop5Blogs() {
     const blogContainerTop5 = document.getElementById("blog-container-top-5");
     if (!blogContainerTop5) return;
 
-    blogContainerTop5.innerHTML = ""; // Clear previous content
+    blogContainerTop5.innerHTML = "";
 
     const top5 = [...newBlogs].slice(-5).reverse();
     top5.forEach(addTop5newPosts);
 }
 
-// Function to handle tag click (for both post tags and sidebar filter buttons)
+// Xử lý filter tag
 function filterByTag(tag) {
-    currentFilterTag = (tag === "All") ? null : tag; // If "All" is clicked, clear filter
-    currentPageBlog = 1; // Reset to first page when applying a new filter
-    renderCurrentPage();
+  currentFilterTag = (tag === "All") ? null : tag;
+  currentPageBlog = 1;
+  renderCurrentPage();
 
-    // Update active class for sidebar filter buttons
-    const tagButtons = document.querySelectorAll("#tag-filter-buttons a");
-    tagButtons.forEach(button => {
-        if (button.dataset.tag === tag) {
-            button.classList.add("active");
-        } else {
-            button.classList.remove("active");
-        }
-    });
+  const tagButtons = document.querySelectorAll("#tag-filter-buttons [data-tag]");
+  tagButtons.forEach(button => {
+    if (button.dataset.tag === tag) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
 }
 
-// Hàm hiển thị từng bài
-function addNewBlog({ tag, title, content, image, link, date }) {
+// Hiển thị từng bài viết
+function addNewBlog({ tags, title, content, image, link, date }) {
     const BlogContainer = document.getElementById("blog-container");
     const newPosts = document.createElement("article");
     newPosts.className = "blog-post";
+
+    const tagLinks = tags.map(tag =>
+        `<a href="#" class="tag-link" data-tag="${tag}">${tag}</a>`
+    ).join(" ");
+
     newPosts.innerHTML = `
         <div class="blog-post-thumb">
             <img src="${image}" alt="blog-thum" />
@@ -93,16 +95,11 @@ function addNewBlog({ tag, title, content, image, link, date }) {
             <div class="blog-post-title">
                 <a href="${link}">${title}</a>
             </div>
-            <div class="blog-post-tag">
-                <a href="#" class="tag-link" data-tag="${tag}">${tag}</a>
-            </div>
+            <div class="blog-post-tag">${tagLinks}</div>
             <div class="blog-post-meta">
                 <ul>
                     <li>By <a href="about.html">Duong Le</a></li>
-                    <li>
-                        <i class="fa fa-clock-o"></i>
-                        ${date}
-                    </li>
+                    <li><i class="fa fa-clock-o"></i> ${date}</li>
                 </ul>
             </div>
             <p>${content}</p>
@@ -111,15 +108,17 @@ function addNewBlog({ tag, title, content, image, link, date }) {
     `;
     BlogContainer.appendChild(newPosts);
 
-    // Attach event listener to the tag link on the post itself
-    newPosts.querySelector(".tag-link").addEventListener("click", (e) => {
-        e.preventDefault();
-        const clickedTag = e.target.dataset.tag;
-        filterByTag(clickedTag);
+    newPosts.querySelectorAll(".tag-link").forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const clickedTag = e.target.dataset.tag;
+            filterByTag(clickedTag);
+        });
     });
 }
 
-function addTop5newPosts({ tag, title, content, image, link, date }) {
+// Hiển thị top 5 bài viết
+function addTop5newPosts({ title, image, link, date }) {
     const blogContainerTop5 = document.getElementById("blog-container-top-5");
     const newPosts = document.createElement("div");
     newPosts.className = "latest-widget";
@@ -151,70 +150,69 @@ function addTop5newPosts({ tag, title, content, image, link, date }) {
     blogContainerTop5.appendChild(newPosts);
 }
 
-// This function will create the tag filter buttons in the sidebar
+// Render nút filter tag ở sidebar
 function renderTagFilterButtons() {
-    const tagFilterContainer = document.getElementById("tag-filter-buttons");
-    if (!tagFilterContainer) return;
+  const tagFilterContainer = document.getElementById("tag-filter-buttons");
+  if (!tagFilterContainer) return;
 
-    // Clear all old buttons, and re-add the "All Posts" button as the first one
-    tagFilterContainer.innerHTML = ''; // Clear everything first
-    const allPostsLink = document.createElement('a');
-    allPostsLink.href = "#";
-    allPostsLink.dataset.tag = "All";
-    allPostsLink.classList.add('tag-link'); // Add tag-link class for consistency with other tag links
-    if (currentFilterTag === null) {
-        allPostsLink.classList.add('active');
-    }
-    allPostsLink.textContent = "All Posts";
-    tagFilterContainer.appendChild(allPostsLink);
+  tagFilterContainer.innerHTML = '';
 
-    // Attach event listener for the "All Posts" button
-    allPostsLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        filterByTag('All');
+  // All Posts button
+  const allLi = document.createElement("li");
+  allLi.className = "category-item";
+
+  const allLink = document.createElement('a');
+  allLink.href = "#";
+  allLink.dataset.tag = "All";
+  allLink.className = 'category-link' + (currentFilterTag === null ? ' active' : '');
+  allLink.textContent = "All Blog";
+
+  allLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    filterByTag("All");
+  });
+
+  allLi.appendChild(allLink);
+  tagFilterContainer.appendChild(allLi);
+
+  // Other tags
+  const tagCounts = {};
+  newBlogs.forEach(post => {
+    post.tags.forEach(tag => {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    });
+  });
+
+  Object.entries(tagCounts).forEach(([tag, count]) => {
+    const li = document.createElement("li");
+    li.className = "category-item";
+
+    const link = document.createElement("a");
+    link.href = "#";
+    link.dataset.tag = tag;
+    link.className = 'category-link' + (currentFilterTag === tag ? ' active' : '');
+    link.textContent = `${tag} (${count})`;
+
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      filterByTag(tag);
     });
 
-    const uniqueTags = new Set();
-    const tagCounts = {};
-
-    newBlogs.forEach(post => {
-        uniqueTags.add(post.tag);
-        tagCounts[post.tag] = (tagCounts[post.tag] || 0) + 1;
-    });
-
-    uniqueTags.forEach(tag => {
-        const link = document.createElement("a");
-        link.href = "#";
-        link.dataset.tag = tag;
-        link.classList.add('tag-link'); // Add tag-link class for consistency
-        const isActive = (currentFilterTag === tag) ? "active" : "";
-        if (isActive) {
-            link.classList.add("active");
-        }
-        link.textContent = `${tag} (${tagCounts[tag]})`;
-        tagFilterContainer.appendChild(link);
-
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const clickedTag = e.target.dataset.tag;
-            filterByTag(clickedTag);
-        });
-    });
+    li.appendChild(link);
+    tagFilterContainer.appendChild(li);
+  });
 }
 
-
-//TẠO HÀM RENDER PHÂN TRANG
+// Tạo phân trang
 function renderPagination(totalPages) {
     const paginationContainer = document.querySelector(".pagination");
-    paginationContainer.innerHTML = ""; // Xóa phân trang cũ
+    paginationContainer.innerHTML = "";
 
-    // Render page number buttons
     for (let i = 1; i <= totalPages; i++) {
         const li = document.createElement("li");
         li.className = "page-item";
-        // Active class only applies to page numbers when NO tag filter is active
         li.innerHTML = `
-            <a class="page-link ${i === currentPageBlog && currentFilterTag === null ? "active" : ""}" href="#">${i}</a>
+            <a class="page-link ${i === currentPageBlog ? "active" : ""}" href="#">${i}</a>
         `;
         li.addEventListener("click", (e) => {
             e.preventDefault();
@@ -224,7 +222,6 @@ function renderPagination(totalPages) {
         paginationContainer.appendChild(li);
     }
 
-    // Next button
     if (currentPageBlog < totalPages) {
         const nextLi = document.createElement("li");
         nextLi.className = "page-item";
@@ -238,39 +235,36 @@ function renderPagination(totalPages) {
     }
 }
 
-// RENDER DỮ LIỆU THEO TRANG
+// Render bài viết theo trang
 function renderCurrentPage() {
     const BlogContainer = document.getElementById("blog-container");
     if (!BlogContainer) return;
 
-    BlogContainer.innerHTML = ""; // Clear old content
+    BlogContainer.innerHTML = "";
 
-    // Filter posts based on currentFilterTag
     let filteredPosts = newBlogs;
     if (currentFilterTag) {
-        filteredPosts = newBlogs.filter(post => post.tag === currentFilterTag);
+        filteredPosts = newBlogs.filter(post => post.tags.includes(currentFilterTag));
     }
 
-    const reversedPosts = [...filteredPosts].reverse(); // Sort by newest first
+    const reversedPosts = [...filteredPosts].reverse();
     const start = (currentPageBlog - 1) * POSTS_PER_PAGE_BLOG;
     const end = start + POSTS_PER_PAGE_BLOG;
     const currentPosts = reversedPosts.slice(start, end);
 
     currentPosts.forEach(addNewBlog);
 
-    // Calculate total pages based on filtered posts
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE_BLOG);
     renderPagination(totalPages);
     window.scrollTo({
-        top: document.getElementById("blog-container").offsetTop - 30,
+        top: BlogContainer.offsetTop - 30,
         behavior: "smooth"
     });
-    // After rendering posts and pagination, re-render tag filter buttons to update counts and active state
     renderTagFilterButtons();
 }
 
-// Call functions when DOM is loaded
+// Gọi hàm khi DOM ready
 document.addEventListener("DOMContentLoaded", function () {
     renderTop5Blogs();
-    renderCurrentPage(); // renderCurrentPage will call renderTagFilterButtons
+    renderCurrentPage();
 });
