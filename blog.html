@@ -88,28 +88,40 @@
     </div>
 
     <div class="col-lg-4">
-      <aside class="sidebar">
+      
+        <!-- Categories Widget -->
         <div class="widget">
           <div class="widget-title">
             <h3>Blog Categories</h3>
           </div>
-          <div class="blog-post-tag" id="tag-filter-buttons" >
-           
-              <a href="#" data-tag="All" class="active">All Posts</a>
-           
+          <!-- <ul class="categories-list" >
+            <li class="category-item" id="tag-filter-buttons">
+              <a href="#" data-tag="All" class="category-link active">All Posts</a>
+            </li>
+          </ul> -->
+          <div >
+            <ul class="categories-list" id="tag-filter-buttons">
+              <li class="category-item">
+                  <a href="#" data-tag="" class="category-link">
+                      <span class="category-name"></span>
+                      <span class="category-count"></span>
+                  </a>
+              </li>
+            
+            </ul>
           </div>
         </div>
 
+        <!-- Latest Posts Widget -->
         <div class="blog-post-widget">
           <div class="widget">
             <div class="widget-title">
-            <h3>Latest Posts</h3>
+              <h3>Latest Posts</h3>
+            </div>
+            <div id="blog-container-top-5"></div>
           </div>
-          <div id="blog-container-top-5"></div>
-          </div>
-          
         </div>
-      </aside>
+      
     </div>
   </div>
 </div>
