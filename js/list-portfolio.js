@@ -61,12 +61,13 @@ function renderTop5Projects() {
         <img src="${project.image}" alt="project-thumbnail" />
       </div>
       <div class="blog-post-content">
-        <div class="blog-post-title">
-          <a href="${project.link}">${project.title}</a>
-        </div>
-        <div class="blog-post-tag">${project.tags.map(tag =>
+        <div class="blog-post-tag-1">${project.tags.map(tag =>
           `<a href="#" class="tag-link" data-tag="${tag}">${tag}</a>`).join(" ")}</div>
         <div class="blog-post-meta">
+        <div class="blog-post-title mt-2">
+          <a href="${project.link}">${project.title}</a>
+        </div>
+        
           <ul><li>By <a href="about.html">Duong Le</a></li></ul>
         </div>
         <p>${project.content}</p>
@@ -98,15 +99,16 @@ function addNewPor({ tags, title, content, image, link }) {
       <img src="${image}" alt="project-thumbnail" />
     </div>
     <div class="blog-post-content">
+      <div class="blog-post-tag-1">${tagLinks}</div>
       <div class="blog-post-title">
         <a href="${link}">${title}</a>
       </div>
-      <div class="blog-post-tag">${tagLinks}</div>
+      
       <div class="blog-post-meta">
         <ul><li>By <a href="about.html">Duong Le</a></li></ul>
       </div>
       <p>${content}</p>
-      <a href="${link}" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
+      
     </div>
   `;
 
