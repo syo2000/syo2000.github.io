@@ -134,17 +134,18 @@ function addTop5newPosts({ title, image, link, date }) {
             </div>
         </div>
         <div class="latest-widget-content">
-            <div class="content-title">
-                <a href="${link}">${title}</a>
-            </div>
             <div class="content-meta">
                 <ul>
                     <li>
-                        <i class="fa fa-clock-o"></i>
+                       
                         ${date}
                     </li>
                 </ul>
             </div>
+            <div class="content-title">
+                <a href="${link}">${title}</a>
+            </div>
+            
         </div>
     `;
     blogContainerTop5.appendChild(newPosts);
